@@ -17,33 +17,37 @@ import { store as reactReduxStore } from "./counter-slice";
 import { store as reactReduxStore2 } from "./counter-slice2";
 import { myTimer } from './mobx';
 
+function wrapHome(p) {
+  return process.env.NODE_ENV !== "development" ? `/hello-world${p}` : p;
+}
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: wrapHome("/"),
     element: <Home />
   },
   {
-    path: "/contact/:contactId",
+    path: wrapHome("/contact/:contactId"),
     element: <Contact />
   },
   {
-    path: "/storeIndex",
+    path: wrapHome("/storeIndex"),
     element: <StoreIndex />
   },
   {
-    path: "/reduxToolkitIndex",
+    path: wrapHome("/reduxToolkitIndex"),
     element: <ReduxToolkitIndex />
   },
   {
-    path: "/reactReduxIndex",
+    path: wrapHome("/reactReduxIndex"),
     element: <ReactReduxIndex />
   },
   {
-    path: "/connectIndex",
+    path: wrapHome("/connectIndex"),
     element: <ConnectIndex />
   },
   {
-    path: "/mobxIndex",
+    path: wrapHome("/mobxIndex"),
     element: <MobxIndex timer={myTimer} />
   }
 ]);
