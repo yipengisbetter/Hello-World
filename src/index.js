@@ -55,6 +55,8 @@ export const {
   Provider
 } = React.createContext(defaultCount);
 
+console.log("start react app!");
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 function App() {
   const [count, setCount] = useState(defaultCount);
